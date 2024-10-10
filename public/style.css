@@ -1,0 +1,21 @@
+/* Custom styles for footer */
+footer.bg-light {
+    background-color: #f8f9fa !important; /* Light background */
+}
+
+footer.bg-dark {
+    background-color: #343a40 !important; /* Dark background */
+}
+
+footer .p-4 {
+    padding: 2rem !important; /* Increase padding */
+}
+
+footer .text-lg-start {
+    text-align: left !important; /* Align text to left for large screens */
+}
+
+footer .bg-dark.text-white {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+}
