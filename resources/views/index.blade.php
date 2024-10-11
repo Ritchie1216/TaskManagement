@@ -48,9 +48,18 @@
                                     @if($task->is_completed == 0)
                                         <a href="{{ route('doneTask', $task->id) }}" class="btn btn-success btn-sm">Mark as Completed</a>
                                     @endif
-                                    <!-- Example action buttons (edit, delete) -->
-                                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                   <!-- Edit Task Button -->
+                                    <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-primary btn-sm">Edit</a>
+
+                                <!-- Delete Task Button -->
+                                <form action="{{ route('tasks.delete', $task->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+
+                                
+                                
                                 </td>
                             </tr>
                         @endforeach

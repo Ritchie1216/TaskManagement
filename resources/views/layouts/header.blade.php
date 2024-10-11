@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{ url('/tasks') }}">Tasks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/tasks/create') }}">Create Task</a>
+                    <a class="nav-link" href="{{ url('/create') }}">Create Task</a>
                 </li>
                 <!-- Authentication Links -->
                 
