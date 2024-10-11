@@ -7,12 +7,12 @@
         <h1>Welcome to Task Manager</h1>
         <p>This is the main content of the index page.</p>
 
-            @if(session('success'))
+        @if(session('success'))
             <div class="alert alert-success">
-                {{session('success')}}
+                {{ session('success') }}
             </div>
-            @endif
-            
+        @endif
+        
         <div class="container">
             <h2>Task List</h2>
             @if($tasks->isEmpty())
@@ -25,6 +25,7 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>Due Date</th>
+                            <th>Status</th> <!-- 增加 Status 列 -->
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,6 +37,17 @@
                                 <td>{{ $task->description }}</td>
                                 <td>{{ $task->due_date }}</td>
                                 <td>
+                                    <!-- 检查 is_completed 值并显示状态 -->
+                                    @if($task->is_completed == 1)
+                                        <span class="badge bg-success">Done</span>
+                                    @else
+                                        <span class="badge bg-warning">Pending</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($task->is_completed == 0)
+                                        <a href="{{ route('doneTask', $task->id) }}" class="btn btn-success btn-sm">Mark as Completed</a>
+                                    @endif
                                     <!-- Example action buttons (edit, delete) -->
                                     <a href="#" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
