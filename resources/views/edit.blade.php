@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="due_date">Due Date:</label>
-                <input type="date" name="due_date" id="due_date" class="form-control" value="{{ $task->due_date }}" required>
+                <input type="date" name="due_date" id="due_date"  min="{{date('Y-m-d')}}" class="form-control" value="{{ $task->due_date }}" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Update Task</button>
